@@ -1,0 +1,79 @@
+.pickup-page, .pickup-list-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.pickup-form label {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.pickup-form input[type="text"],
+.pickup-form input[type="date"],
+.pickup-form input[type="time"],
+.pickup-form input[type="file"],
+.pickup-form select,
+.pickup-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 6px;
+  box-sizing: border-box;
+}
+
+.pickup-form textarea {
+  min-height: 80px;
+}
+
+.pickup-form button {
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.preview img {
+  max-width: 200px;
+  display: block;
+  margin-top: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.pickup-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pickup-table th, .pickup-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.pickup-table th {
+  background: #f7f7f7;
+}
+
+.btn-cancel {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 6px 8px;
+  margin-right: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-view {
+  background: #2ecc71;
+  color: white;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,253 @@
+/* Fullscreen container with subtle dark gradient */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background:
+  url("C:\Users\Sonika\Desktop\waste-management\frontend\public\waste.jpg") no-repeat center center/cover;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* Glassmorphism box with soft glow */
+.auth-box {
+  background: rgba(38, 33, 33, 0.7);
+  padding: 60px 50px;
+  border-radius: 20px;
+  width: 380px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-box::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at top left, rgba(24, 204, 69, 0.4), transparent 35%), 
+              radial-gradient(circle at bottom right, rgba(30, 144, 255, 0.3), transparent 40%);
+  animation: moveGradient 6s linear infinite;
+  z-index: 0;
+}
+
+@keyframes moveGradient {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.auth-box * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.auth-box h2 {
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+/* Input fields */
+.auth-box input,
+.auth-box select {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  font-size: 15px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+
+.auth-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-box input:focus,
+.auth-box select:focus {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px #1e90ff, 0 0 15px #1ec73d;
+}
+
+/* Button with neon gradient glow */
+.auth-box button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1e90ff, #1ecb4c);
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.2s, box-shadow 0.3s;
+  
+}
+
+.auth-box button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px #1e90ff, 0 0 25px #118407, 0 0 0 #fff;
+}
+
+/* Forgot password link */
+.forgot-link {
+  margin-top: 12px;
+  cursor: pointer;
+  color: #1e90ff;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.forgot-link:hover,
+.forgot-link:focus {
+  color: #0aa615;
+  text-shadow: 0 0 8px rgba(9, 169, 27, 0.8);
+}
+
+/* Register link */
+.auth-box p {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #f0f0f0;
+}
+
+.auth-box p a {
+  color: #1e90ff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.auth-box p a:hover {
+  color: #45d149d8;
+  text-shadow: 0 0 8px rgba(255, 110, 199, 0.9);
+}
+
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333; /* readable text */
+  background: rgba(255, 255, 255, 0.9); /* light background */
+  
+  cursor: pointer;
+}
+
+/* Dropdown Options */
+select option {
+  color: #333;
+  background: #fff; /* makes options clearly visible */
+  font-size: 16px;
+}
+
+
+.login-container {
+
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-size: cover;
+  background-color: #f3f6f9;
+  justify-content: center;
+  align-items: center;
+  background-color:  #ffffff;
+  padding: 40px 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(16, 163, 127, 0.3);
+  width: 100%;
+  text-align: center;
+  height: 350px;
+  max-width: 300px;
+}
+
+.login-container h2 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #10a37f;
+  box-shadow: 0 0 8px 2px rgba(16, 163, 127, 0.4);
+  transform: translateY(-2px);
+}
+
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #10a37f;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 6px rgba(16, 163, 127, 0.3);
+}
+
+.login-container button:hover {
+  background-color: #0e8f71;
+  box-shadow: 0 0 12px 2px rgba(16, 163, 127, 0.4);
+  transform: translateY(-2px);
+}
+
+.forgot-link {
+  margin-top: 10px;
+  cursor: pointer;
+  color: #1e3a8a;
+  text-decoration: underline;
+  outline: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.forgot-link:hover,
+.forgot-link:focus {
+  color: #2563eb; /* Lighter blue */
+  text-shadow: 0 0 5px rgba(37, 99, 235, 0.6);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
