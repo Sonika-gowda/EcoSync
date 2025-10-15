@@ -16,7 +16,10 @@ import AssignedPickups from "./pages/Worker/AssignedPickups";
 import ManageViolations from "./pages/Admin/ManageViolations";
 import Notifications from "./pages/Resident/Notifications";
 import ForgotPassword from "./pages/ForgotPassword";
-
+import ResetPassword from "./pages/ResetPassword";
+import ProfilePage from "./pages/ProfilePage";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 function App() {
   return (
     <>
@@ -24,9 +27,12 @@ function App() {
       <Routes>
         {/* Public */}
         <Route path="/" element={<LandingPage />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} /> {/* Added */}
+        <Route path="/reset-password/:token" element={<ResetPassword />} />
         {/* Resident */}
         <Route path="/resident/dashboard" element={<ResidentDashboard />} />
         <Route path="/resident/complaint" element={<ComplaintForm />} />
@@ -46,6 +52,7 @@ function App() {
         <Route path="/admin/violations" element={<ManageViolations />} />
 
         {/* Fallback */}
+        <Route path="/profile" element={<ProfilePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

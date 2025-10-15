@@ -1,37 +1,58 @@
-import { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./notifications.css";
 
-export default function Notifications() {
-  const [myNotices, setMyNotices] = useState([]);
+export default function NotificationsPage() {
+  const [violations, setViolations] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const email = localStorage.getItem("residentEmail");
-    const all = JSON.parse(localStorage.getItem("violations") || "[]");
+    const fetchViolations = async () => {
+      try {
+        const user = JSON.parse(localStorage.getItem("user") || "null");
+        if (!user) return;
 
-    // Show only for logged-in resident
-    const mine = all.filter(
-      (v) =>
-        v.residentEmail === email &&
-        (v.status === "Warning Sent" || v.status === "Fine Issued")
-    );
+        const residentId = user._id;
+        const res = await axios.get(`http://localhost:5000/api/violations/${residentId}`);
+        setViolations(res.data);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-    setMyNotices(mine);
+    fetchViolations();
   }, []);
 
+  if (loading) return <p>Loading notifications...</p>;
+
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>My Notifications</h2>
-      {myNotices.length === 0 ? (
-        <p>No notifications yet 🎉</p>
+    <div className="notifications-page">
+      <h2>My Violations</h2>
+      {violations.length === 0 ? (
+        <p>No violations yet. Good job!</p>
       ) : (
-        <ul>
-          {myNotices.map((n) => (
-            <li key={n.id}>
-              🏠 <strong>{n.house}</strong> — {n.status}
-              <br />
-              <em>({n.type}: {n.notes})</em>
-            </li>
-          ))}
-        </ul>
+        <table className="violations-table">
+          <thead>
+            <tr>
+              <th>Violation</th>
+              <th>Fine (₹)</th>
+              <th>Status</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {violations.map((v) => (
+              <tr key={v._id}>
+                <td>{v.type}</td>
+                <td>{v.fine}</td>
+                <td>{v.status}</td>
+                <td>{new Date(v.createdAt).toLocaleDateString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

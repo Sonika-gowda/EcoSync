@@ -1,79 +1,135 @@
-.pickup-page, .pickup-list-page {
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+/* myPickups.css - White Background with Green Theme */
+
+/* Page Container */
+.my-pickups-page {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px 40px;
+  background-color: #ffffff; /* white background */
+  border-radius: 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #28a745; /* green text */
 }
 
-.pickup-form label {
-  display: block;
-  margin-bottom: 12px;
+.my-pickups-page h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #0e571f; /* green title */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.pickup-form input[type="text"],
-.pickup-form input[type="date"],
-.pickup-form input[type="time"],
-.pickup-form input[type="file"],
-.pickup-form select,
-.pickup-form textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 6px;
-  box-sizing: border-box;
-}
-
-.pickup-form textarea {
-  min-height: 80px;
-}
-
-.pickup-form button {
-  margin-top: 12px;
-  padding: 10px 16px;
-  background: #007bff;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.preview img {
-  max-width: 200px;
-  display: block;
-  margin-top: 8px;
-  border-radius: 6px;
-  border: 1px solid #ddd;
-}
-
-.pickup-table {
+/* Table */
+.my-pickups-page table {
   width: 100%;
   border-collapse: collapse;
+  background-color: #f0fdf4; /* light greenish background for table */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
-.pickup-table th, .pickup-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+.my-pickups-page th,
+.my-pickups-page td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #d1fae5; /* light green border */
+  font-size: 0.95rem;
+  color: #121313; /* green text */
+}
+
+.my-pickups-page th {
+  background-color: #28a745; /* green header */
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #ffffff; /* white text in header */
+}
+
+.my-pickups-page tr:hover {
+  background-color: #218838; /* darker green hover */
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.3s all;
+}
+
+.my-pickups-page td img {
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  border: 1px solid #28a745; /* green border */
+}
+
+.my-pickups-page td img:hover {
+  transform: scale(1.1);
+}
+
+/* Empty Table Message */
+.my-pickups-page p {
+  text-align: center;
+  font-size: 1rem;
+  color: #28a745;
+}
+
+/* pickup.css - Table & image preview like complaints table */
+
+/* My Pickups Table */
+.pickups-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  margin-top: 20px;
+}
+
+.pickups-table th,
+.pickups-table td {
+  padding: 12px 15px;
   text-align: left;
+  transition: all 0.3s ease;
 }
 
-.pickup-table th {
-  background: #f7f7f7;
+.pickups-table th {
+  background: linear-gradient(135deg, #28a745, #218838); /* green gradient */
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.btn-cancel {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 6px 8px;
-  margin-right: 6px;
-  border-radius: 4px;
+.pickups-table tr {
+  transition: all 0.3s ease;
+}
+
+.pickups-table tr:nth-child(even) {
+  background-color: #f0fdf4; /* light greenish background for even rows */
+}
+
+.pickups-table tr:hover {
+  background-color: #d1fae5; /* hover effect */
+  transform: scale(1.01);
+}
+
+/* Image Preview */
+.image-preview-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-preview-container img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #28a745; /* green border */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.btn-view {
-  background: #2ecc71;
-  color: white;
-  border: none;
-  padding: 6px 8px;
-  border-radius: 4px;
-  cursor: pointer;
+.image-preview-container img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }

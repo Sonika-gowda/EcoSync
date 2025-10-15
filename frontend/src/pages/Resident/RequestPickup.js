@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./pickup.css";
+import axios from "axios";
+import "./RequestPickup.css";
 
-// helper: convert file to base64 (to save in localStorage)
 const fileToBase64 = (file) =>
   new Promise((resolve, reject) => {
     if (!file) return resolve(null);
@@ -26,13 +26,16 @@ export default function RequestPickup() {
   const [preview, setPreview] = useState(null);
   const [submitting, setSubmitting] = useState(false);
 
-  // preload address if saved in "user"
+  const [residentId, setResidentId] = useState(null);
+
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user") || "null");
-    if (user?.address) setForm((s) => ({ ...s, address: user.address }));
+    if (user) {
+      setResidentId(user._id);
+      if (user.address) setForm((s) => ({ ...s, address: user.address }));
+    }
   }, []);
 
-  // show image preview
   useEffect(() => {
     if (!imageFile) return setPreview(null);
     const url = URL.createObjectURL(imageFile);
@@ -43,9 +46,7 @@ export default function RequestPickup() {
   const handleChange = (e) =>
     setForm((s) => ({ ...s, [e.target.name]: e.target.value }));
 
-  const handleFile = (e) => {
-    setImageFile(e.target.files[0] || null);
-  };
+  const handleFile = (e) => setImageFile(e.target.files[0] || null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -54,32 +55,20 @@ export default function RequestPickup() {
       return;
     }
     setSubmitting(true);
-
     try {
       const imageBase64 = imageFile ? await fileToBase64(imageFile) : null;
 
-      const pickups = JSON.parse(localStorage.getItem("pickups") || "[]");
-      const newPickup = {
-        id: Date.now().toString(),
-        wasteType: form.wasteType,
-        quantity: form.quantity,
-        preferredDate: form.preferredDate,
-        preferredTime: form.preferredTime,
-        notes: form.notes,
-        address: form.address,
+      await axios.post("http://localhost:5000/api/pickups", {
+        residentId,
+        ...form,
         image: imageBase64,
-        status: "pending", // default
-        createdAt: new Date().toISOString(),
-      };
-
-      pickups.unshift(newPickup);
-      localStorage.setItem("pickups", JSON.stringify(pickups));
+      });
 
       alert("Pickup request submitted!");
       navigate("/resident/my-pickups");
     } catch (err) {
       console.error(err);
-      alert("Something went wrong.");
+      alert("Error submitting pickup request.");
     } finally {
       setSubmitting(false);
     }
@@ -174,4 +163,3 @@ export default function RequestPickup() {
     </div>
   );
 }
-

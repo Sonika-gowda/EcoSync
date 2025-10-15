@@ -9,8 +9,8 @@ export default function LandingPage() {
 
       {/* Hero Section */}
       <section className="hero">
-        <h2>Smart Waste Management</h2>
-        <p>A digital platform for a cleaner, smarter city.</p>
+        <h2>Waste Management</h2>
+        <p>A digital platform for a cleaner, green city.</p>
         <Link to="/register" className="cta-btn">Get Started</Link>
       </section>
 

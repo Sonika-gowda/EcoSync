@@ -1,0 +1,98 @@
+/* Contact Container */
+.contact-container {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background: linear-gradient(145deg, #f0f8f5, #e6f2e9);
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  position: relative;
+  animation: fadeInUp 1s ease-in-out;
+  overflow: hidden;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heading */
+.contact-container h2 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.contact-container h2::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #66bb6a, #2e7d32);
+  margin: 12px auto 0 auto;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.contact-container h2:hover::after {
+  width: 120px;
+}
+
+.contact-container p {
+  font-size: 1.15rem;
+  color: #333;
+  margin-bottom: 35px;
+}
+
+/* Form Layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 15px 18px;
+  border-radius: 12px;
+  border: 1px solid #b9e0c7;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.2);
+}
+
+/* Submit Button */
+.contact-form button {
+  padding: 15px;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, #66bb6a, #2e7d32);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-container {
+    padding: 30px 20px;
+  }
+}

@@ -1,36 +1,41 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
-import authRoutes from "./routes/auth.js"; // note the .js
+import mongoose from "mongoose";
+import path from "path";
+import userRoutes from "./routes/user.js";
+import authRoutes from "./routes/authRoutes.js";       // your existing auth routes
+import complaintRoutes from "./routes/complaintRoutes.js"; // new complaint routes
+import profileRoutes from "./routes/profile.js";
+import { fileURLToPath } from "url";
+import violationRoutes from "./routes/violationRoutes.js";
+import pickupRoutes from "./routes/pickupRoutes.js";
 
 dotenv.config();
 const app = express();
 
+// Middleware
 app.use(cors());
 app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use("/uploads", express.static(path.join(path.resolve(), "uploads"))); // serve uploaded images
+app.use("/api/profile", profileRoutes);
+
+// Routes
 app.use("/api/auth", authRoutes);
-//--------------forgot password-----------
+app.use("/api/complaints", complaintRoutes);
+app.use("/api/pickups", pickupRoutes);
+app.use("/api/violations", violationRoutes);
+// ✅ Add this line for profile routes
+app.use("/api/users", userRoutes); 
 
-app.post('/api/forgot-password', (req, res) => {
-  const { email } = req.body;
-
-  // Check if user exists
-  const query = 'SELECT * FROM users WHERE email = ?';
-  db.query(query, [email], (err, results) => {
-    if (err) {
-      console.error("❌ Forgot password error:", err);
-      return res.status(500).json({ message: 'Server error' });
-    }
-
-    if (results.length === 0) {
-      return res.status(404).json({ message: 'Email not found' });
-    }
-
-    // Here you would generate a reset token & send an email
-    console.log(`✅ Password reset requested for: ${email}`);
-    return res.json({ message: 'If this email is registered, a reset link has been sent.' });
-  });
-});
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log("MongoDB connected");
+    const PORT = process.env.PORT || 5000;
+    app.listen(PORT, () => console.log(`🚀Server running on port ${PORT}`));
+  })
+  .catch((err) => console.error("MongoDB connection error:", err));

@@ -1,0 +1,73 @@
+.my-complaints-wrapper {
+  padding: 40px 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.my-complaints-wrapper h2 {
+  margin-bottom: 25px;
+  color: #155724;
+  font-size: 28px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.complaints-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.complaints-table th,
+.complaints-table td {
+  padding: 12px 15px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.complaints-table th {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.complaints-table tr {
+  transition: all 0.3s ease;
+}
+
+.complaints-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.complaints-table tr:hover {
+  background-color: #e6ffe6;
+  transform: scale(1.01);
+}
+
+.image-preview-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.image-preview-container img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #28a745;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.image-preview-container img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}

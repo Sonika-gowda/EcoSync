@@ -1,0 +1,100 @@
+/* Container */
+.complaint-form-wrapper {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(135deg, #e6f5ea, #d1f0d6);
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Form styling */
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+  width: 100%;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.complaint-form:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Input fields and textarea */
+.complaint-form input[type="text"],
+.complaint-form textarea,
+.complaint-form input[type="file"] {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.3s;
+}
+
+.complaint-form input[type="text"]:focus,
+.complaint-form textarea:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 10px rgba(40, 167, 69, 0.3);
+}
+
+/* Submit button */
+.complaint-form button {
+  padding: 12px 0;
+  background: linear-gradient(90deg, #28a745, #71d38c);
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(40,167,69,0.3);
+  transition: all 0.3s;
+}
+
+.complaint-form button:hover {
+  background: linear-gradient(90deg, #1e7e34, #4bb564);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(40,167,69,0.4);
+}
+
+/* Image previews */
+.image-preview-container {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 5px;
+}
+
+.image-preview-container img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #28a745;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.image-preview-container img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 15px rgba(40,167,69,0.5);
+}
+
+/* Form heading */
+.complaint-form-wrapper h2 {
+  margin-bottom: 20px;
+  color: #155724;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}

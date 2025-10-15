@@ -1,0 +1,132 @@
+/* pickup.css */
+
+/* Page Container */
+.pickup-page {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #e6f4ea, #d0f0d8); /* light green gradient */
+  border-radius: 20px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  transition: transform 0.3s ease;
+}
+
+.pickup-page:hover {
+  transform: translateY(-5px);
+}
+
+/* Page Title */
+.pickup-page h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  color: #064e3b; /* dark green */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Form */
+.pickup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Labels and Inputs */
+.pickup-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #064e3b; /* dark green for labels */
+}
+
+.pickup-form input,
+.pickup-form select,
+.pickup-form textarea {
+  margin-top: 8px;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #a7f3d0; /* green border */
+  background-color: #f0fdf4; /* very light green background */
+  font-size: 0.95rem;
+  transition: 0.3s all;
+}
+
+.pickup-form input:focus,
+.pickup-form select:focus,
+.pickup-form textarea:focus {
+  outline: none;
+  border-color: #10b981; /* green focus */
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2); /* green glow */
+}
+
+/* Textarea */
+.pickup-form textarea {
+  min-height: 80px;
+  resize: none;
+}
+
+/* File Input */
+.pickup-form input[type="file"] {
+  padding: 5px;
+  border-radius: 8px;
+}
+
+/* Image Preview */
+.preview {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.preview img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s all;
+}
+
+.preview img:hover {
+  transform: scale(1.05);
+}
+
+/* Submit Button */
+.pickup-form button {
+  padding: 14px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(90deg, #089c32, #34d399); /* green gradient */
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s all;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.pickup-form button:hover {
+  background: linear-gradient(90deg, #059622, #10b981); /* darker green on hover */
+  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
+  transform: translateY(-2px);
+}
+
+.pickup-form button:disabled {
+  background: #6ee7b7; /* muted green */
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .pickup-page {
+    margin: 20px;
+    padding: 30px 20px;
+  }
+
+  .pickup-form button {
+    font-size: 0.95rem;
+  }
+}
